@@ -263,7 +263,6 @@ class githubAPI {
   static async userRepos (owner: string, per_page: number, page: number): Promise<githubRepo[]> {
     try {
       const response = await axios.get(`/api/github/repos/${owner}?per_page=${per_page}&page=${page}`)
-      console.log(response.data)
       return response.data
     } catch (err) {
       throw err

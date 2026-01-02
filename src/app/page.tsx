@@ -61,7 +61,6 @@ export default function Home() {
       setLoadingInfoUser(true)
       try {
         const response: githubUserInfo = await githubAPI.userInfo(owner)
-        console.log(response)
         setDataInfoUser(response)
         setLoadingInfoUser(false)
       } catch (err) {
