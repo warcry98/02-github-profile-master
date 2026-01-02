@@ -3,11 +3,9 @@
 import GithubRepo from "@/components/githubRepo";
 import GithubSearch from "@/components/githubSearch";
 import { githubAPI, githubRateLimit, githubUserInfo } from "@/lib/api";
-import useDebounce from "@/lib/debounce";
-import { useOutsideClick } from "@/lib/outsideClick";
-import { rateLimit } from "@/lib/rateLimit";
+import { limitString } from "@/lib/limitString";
 import Image from "next/image";
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Home() {
@@ -15,21 +13,6 @@ export default function Home() {
   const [owner, setOwner] = useState("github")
   const [loadingInfoUser, setLoadingInfoUser] = useState(true)
   const [dataInfoUser, setDataInfoUser] = useState<githubUserInfo>()
-  const [limitReached, setLimitReached] = useState(false)
-  const [repoPerPage, setRepoPerPage] = useState(10)
-  const [repoPage, setRepoPage] = useState(1)
-  const [searchUserPerPage, setSearchUserPerPage] = useState(10)
-  const [searchUserPage, setSearchUserPage] = useState(1)
-  const [dataRepo, setDataRepo] = useState({})
-
-  const [searchResult, setSearchResult] = useState("")
-
-  const showSuccessToast = (message: string): void => {
-    toast.success(message, {
-      position: 'top-right',
-      duration: 3000,
-    })
-  }
 
   const showErrorToast = (message: string): void => {
     toast.error(message, {
@@ -45,11 +28,11 @@ export default function Home() {
         if (response.rate.remaining === 0) {
           const timeReset = new Date(response.rate.reset *  1000).toUTCString()
           showErrorToast(`Limit Reached! \n wait until ${timeReset}`)
-          setLimitReached(true)
+          // setLimitReached(true)
         }
       } catch (err) {
         console.log(err)
-        // showErrorToast(err as string)
+        showErrorToast(limitString(err as string, 50))
       }
     }
 
@@ -65,7 +48,7 @@ export default function Home() {
         setLoadingInfoUser(false)
       } catch (err) {
         console.log(err)
-        // showErrorToast(err as string)
+        showErrorToast(limitString(err as string, 50))
       }
     }
 

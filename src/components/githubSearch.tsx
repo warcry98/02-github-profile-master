@@ -4,8 +4,7 @@ import { githubAPI, githubUserSearch, githubUserSearchItem } from "@/lib/api"
 import useDebounce from "@/lib/debounce"
 import { useOutsideClick } from "@/lib/outsideClick"
 import Image from "next/image"
-import React, { ChangeEvent, useEffect, useRef, useState } from "react"
-import toast from "react-hot-toast"
+import React, { ChangeEvent, useEffect, useState } from "react"
 
 interface ChildProps {
   onChange: (value: string) => void
@@ -14,26 +13,11 @@ interface ChildProps {
 const GithubSearch: React.FC<ChildProps> = ({ onChange }) => {
   const [isSearchActive, setIsSearchActive] = useState(false)
   const [usernameSearch, setUsernameSearch] = useState("")
-  const [owner, setOwner] = useState("github")
   const debouncedUsernameSearch = useDebounce<string>(usernameSearch, 500)
 
-  const [open, setOpen] = useState(false)
-  const [activeIndex, setActiveIndex] = useState(-1)
-
-  const [limit, setLimit] = useState(1)
-  const [page, setPage] = useState(1)
+  const limit = 1
 
   const [resultSearch, setResultSearch] = useState<githubUserSearchItem[]>([])
-
-  const listRef = useRef<HTMLDivElement>(null)
-  const itemsRef = useRef<(HTMLDivElement | null)[]>([])
-
-  const showErrorToast = (message: string): void => {
-    toast.error(message, {
-      position: 'top-right',
-      duration: 3000,
-    })
-  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,7 +61,7 @@ const GithubSearch: React.FC<ChildProps> = ({ onChange }) => {
 
       {isSearchActive && resultSearch.length > 0 && <div className="mt-2 rounded-xl flex flex-col justify-start items-start -translate-x-8 w-120 bg-gray-900 z-20">
       {resultSearch.length > 0 && resultSearch.map((result, i) => (
-        <button type="button" onClick={() => {setOwner(result.node.login); setIsSearchActive(false); onChange(result.node.login)}} className="flex flex-row justify-start items-start" key={i}>
+        <button type="button" onClick={() => {setIsSearchActive(false); onChange(result.node.login)}} className="flex flex-row justify-start items-start" key={i}>
           <Image alt={result.node.login} src={result.node.avatarUrl} height={50} width={50} style={{ width: 'auto', height: 'auto'}} className="p-3"/>
           <div className="flex flex-col p-4 text-slate-300 font-be-vietnam-pro">
             <h3 className="text-xl font-semibold">{result.node.name}</h3>
