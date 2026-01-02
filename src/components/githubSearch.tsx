@@ -54,7 +54,7 @@ const GithubSearch: React.FC<ChildProps> = ({ onChange }) => {
       <div ref={searchContainerRef}>
         <div className="flex flex-row justify-center items-center mt-7 -translate-x-15">
         <Image alt="search-icon" src="/resources/Search.svg" width={20} height={20} className="translate-x-10" style={{ width: 'auto', height: '28px' }} />
-        <div className="inset-0 h-12 lg:w-120 w-120 rounded-xl bg-slate-800">
+        <div className="inset-0 h-14 lg:w-120 w-120 rounded-xl bg-slate-800">
           <input type="search" title="search" placeholder="username" onFocus={handleFocus} onChange={handleInputChange} className={`text-slate-300 text-s h-full w-full pl-12 font-be-vietnam-pro`}/>
         </div>
       </div>

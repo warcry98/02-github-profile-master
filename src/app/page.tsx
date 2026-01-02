@@ -91,14 +91,14 @@ export default function Home() {
       </div>
       <div className="flex flex-col relative">
         <GithubSearch onChange={handleDataOwnerFromSearch}/>
-        <div className="flex flex-col z-10 mt-42 lg:mt-55 relative">
+        <div className="flex flex-col z-10 mt-27 lg:mt-57 relative">
           <div className="flex lg:flex-row flex-col lg:ml-28 ml-12 lg:items-center items-start">
-            <div className="w-auto h-auto bg-slate-800 p-2 rounded-lg -translate-y-10 sm:-translate-y-14">
+            <div className="w-auto h-auto bg-slate-800 p-2 rounded-lg lg:-translate-y-8">
               <div className="w-auto h-auto bg-black rounded-lg">
                 {dataInfoUser && <Image alt={dataInfoUser.login} src={dataInfoUser?.avatar_url} height={90} width={90} style={{ width: 'auto', height: 'auto' }} />}
               </div>
             </div>
-            <div className="flex flex-row lg:ml-12 lg:w-160 w-120 flex-wrap gap-4">
+            <div className="flex flex-row mt-6 lg:ml-12 lg:w-160 w-120 flex-wrap gap-4">
               <div className="flex flex-row items-stretch bg-gray-900 rounded-xl">
                 <div className="h-auto w-auto text-slate-300 p-4 text-base font-be-vietnam-pro font-semibold">
                   Follower
@@ -128,7 +128,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:ml-30 ml-12 mt-10">
+          <div className="flex flex-col lg:ml-30 ml-12 lg:mt-2 mt-8">
             <h1 className="text-slate-300 text-4xl font-be-vietnam-pro">{!loadingInfoUser ? dataInfoUser?.name : ""}</h1>
             <h2 className="text-slate-300 text-xl font-be-vietnam-pro">{!loadingInfoUser ? dataInfoUser?.bio : ""}</h2>
           </div>
