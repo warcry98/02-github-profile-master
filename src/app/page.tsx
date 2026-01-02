@@ -91,7 +91,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col relative">
         <GithubSearch onChange={handleDataOwnerFromSearch}/>
-        <div className="flex flex-col z-10 mt-27 lg:mt-50 relative">
+        <div className="flex flex-col z-10 mt-27 lg:mt-55 relative">
           <div className="flex lg:flex-row flex-col lg:ml-28 ml-12 lg:items-center items-start">
             <div className="w-auto h-auto bg-slate-800 p-2 rounded-lg lg:-translate-y-8">
               <div className="w-auto h-auto bg-black rounded-lg">
