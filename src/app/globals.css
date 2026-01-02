@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+} */
+
+/* @theme inline {
+  
+} */
+
+.bg-slate-800 {
+  background-color: #1F293A;
+}
+
+.bg-slate-900 {
+  background-color: #11172A;
+}
+
+.bg-indigo-950 {
+  background-color: #1B1A42;
+}
+
+.from-slate-900 {
+  background-color: #11172A;
+}
+
+.to-indigo-950 {
+  background-color: #1B1A42;
+}
+
+.text-slate-300 {
+  color: #CDD5E0;
+}
+
+.bg-slate-300 {
+  color: #CDD5E0;
+}
+
+.bg-gray-900 {
+  background-color: #111628;
+}
+
+input::placeholder {
+  color: #CDD5E0;
+}
