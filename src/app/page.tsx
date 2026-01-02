@@ -91,7 +91,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col relative">
         <GithubSearch onChange={handleDataOwnerFromSearch}/>
-        <div className="flex flex-col z-10 mt-27 lg:mt-57 relative">
+        <div className="flex flex-col z-10 mt-27 lg:mt-50 relative">
           <div className="flex lg:flex-row flex-col lg:ml-28 ml-12 lg:items-center items-start">
             <div className="w-auto h-auto bg-slate-800 p-2 rounded-lg lg:-translate-y-8">
               <div className="w-auto h-auto bg-black rounded-lg">
@@ -128,7 +128,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:ml-30 ml-12 lg:mt-2 mt-8">
+          <div className="flex flex-col lg:ml-30 ml-12 xl:-mt-3 lg:-mt-3 mt-8">
             <h1 className="text-slate-300 text-4xl font-be-vietnam-pro">{!loadingInfoUser ? dataInfoUser?.name : ""}</h1>
             <h2 className="text-slate-300 text-xl font-be-vietnam-pro">{!loadingInfoUser ? dataInfoUser?.bio : ""}</h2>
           </div>
